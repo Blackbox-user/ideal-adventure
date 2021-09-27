@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="MBTI, mbti, MBTI 免费在线测试, MBTI测试" />
+    <meta name="author" content="axiaoxin" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="MBTI, mbti人格测试, 职业性格测试, mbti免费在线测试, MBTI测试" />
+    <title>{% block title %}{% endblock %}|MBTI测试</title>
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='img/favicon.ico') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HMBSBE8TJM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-HMBSBE8TJM');
+    </script>
+    <script
+      data-ad-client="ca-pub-3022214826355647"
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?0164204605ac860bf70d62bba2bf6302";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    {% block css %} {% endblock %}
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="{{ url_for('static', filename='html5shiv.js') }}"></script>
+      <script src="{{ url_for('static', filename='respond.min.js') }}"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">MBTI职业性格在线测试</a>
+          <button
+            class="navbar-toggle"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbar-main"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="/home/">MBTI首页</a>
+            </li>
+            <li>
+              <a href="/personalities/">MBTI十六种人格简介</a>
+            </li>
+            <li>
+              <a href="/about/">关于MBTI</a>
+            </li>
+            <li>
+              <a href="/messageboards/">留言板</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--NAV BAR END-->
+
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <div class="flashes">
+      <ul class="alert alert-dismissible alert-success">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %} {% endwith %} {% block container_top %} {% endblock %}
+    <div class="container">
+      {% block container %} {% endblock %}
+    </div>
+    {% block container_bottom %} {% endblock %}
+
+    <footer class="footer navbar-fixed-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="list-unstyled">
+              <li class="pull-right"><a href="#top">Back to top</a></li>
+              <li>
+                <a href="http://axiaoxin.com" target="_blank">axiaoxin@2015</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/app.css') }}"
+    />
+    <script src="{{ url_for('static', filename='js/jquery-1.10.2.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    {% block js %} {% endblock %}
+    <!-- For lulilu 迷恋挖矿 -->
+  </body>
+</html>
